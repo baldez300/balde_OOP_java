@@ -13,13 +13,13 @@ public class Task_3 {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Give the first number:");
-        int first = Integer.valueOf(scanner.nextLine());
+        int first = Integer.parseInt(scanner.nextLine());
 
         System.out.println("Give the second number:");
-        int second = Integer.valueOf(scanner.nextLine());
+        int second = Integer.parseInt(scanner.nextLine());
 
         System.out.println("Give the third number:");
-        int third = Integer.valueOf(scanner.nextLine());
+        int third = Integer.parseInt(scanner.nextLine());
 
         double average = first + second + third;
 
