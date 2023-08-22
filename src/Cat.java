@@ -5,7 +5,7 @@
     //The cat named Whiskers says: Meow!
 
 public class Cat {
-    private String name;
+    private final String name;
 
     public Cat(String name) {
         this.name = name;
