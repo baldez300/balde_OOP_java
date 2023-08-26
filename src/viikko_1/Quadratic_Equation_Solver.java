@@ -12,6 +12,7 @@ import java.util.Scanner;
 public class Quadratic_Equation_Solver {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter the coefficients of the quadratic equation (ax^2 + bx + c = 0):");
 
         System.out.print("Enter the coefficient a: ");
         double a = Double.parseDouble(scanner.nextLine());
