@@ -58,25 +58,50 @@ import java.util.ArrayList;
 public class GroceryListManager {
     private final ArrayList<String> groceryList = new ArrayList<>();
 
-    // Added method list
     public void addItem(String item) {
-        groceryList.add(item);
+        if (item != null && !item.trim().isEmpty()) {
+            if (!groceryList.contains(item)) {
+                groceryList.add(item);
+                System.out.println(item + " => added to the grocery list.");
+            } else {
+                System.out.println(item + " is already in the grocery list. Duplicate items not allowed.");
+            }
+        } else {
+            System.out.println("Invalid item. Item cannot be empty or null.");
+        }
     }
 
     public void removeItem(String item) {
-        groceryList.remove(item);
+        if (item != null && !item.trim().isEmpty()) {
+            if (groceryList.contains(item)) {
+                groceryList.remove(item);
+                System.out.println(item + " removed from the grocery list.");
+            } else {
+                System.out.println(item + " is not in the grocery list. Cannot remove.");
+            }
+        } else {
+            System.out.println("Invalid item. Item cannot be empty or null.");
+        }
     }
 
     public void displayList() {
-        for (int i = 0; i < groceryList.size(); i++) {
-            System.out.println(i + 1 + ". " + groceryList.get(i));
+        if (groceryList.isEmpty()) {
+            System.out.println("The grocery list is empty.");
+        } else {
+            // System.out.println("Grocery List:");
+            for (int i = 0; i < groceryList.size(); i++) {
+                System.out.println(i + 1 + ". " + groceryList.get(i));
+            }
         }
     }
 
     public boolean checkItem(String item) {
-        return groceryList.contains(item);
+        if (item != null && !item.trim().isEmpty()) {
+            return groceryList.contains(item);
+        }
+        System.out.println("Invalid item. Item cannot be empty or null.");
+        return false;
     }
-
 
     public static void main(String[] args) {
 
@@ -94,13 +119,20 @@ public class GroceryListManager {
         // Check if a specific item is present in the grocery list.
         System.out.println("\nIs \"Milk\" in the grocery list? " + groceryListManager.checkItem("Milk"));
 
+        // Attempt to add duplicate item.
+        groceryListManager.addItem("Milk");
+
         // Remove an item from the grocery list.
         System.out.println("\nRemoving \"Milk\" from the list...");
+        groceryListManager.removeItem("Milk");
+
+        // Attempt to remove a non-existent item.
+        System.out.println("\nRemoving \"Milk\" again...");
         groceryListManager.removeItem("Milk");
 
         // Display the updated grocery list.
         System.out.println("\nUpdated Grocery List:");
         groceryListManager.displayList();
     }
-
 }
+
