@@ -1,4 +1,4 @@
-package viikko_2.Task_2_2_4;
+package viikko_2.Task2_2_4;
 
 /*
     Task 4: Quantity Tracking
